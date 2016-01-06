@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static fb_versions %}
+{% block body %}
+
+    <div class="col-md-10">
+        {% for flat in object_list %}
+            <div class="flat row">
+                <div class="col-md-7">
+                    <img src="{% version flat.image 'big' %}"/>
+                </div>
+                <div class="col-md-5">
+                    <a class="flat_list_header" href="{% url 'flat_detail' flat.slug %}">{{ flat.title }}</a>
+                    <table class="table table-striped">
+                        <tr><th>wi-fi</th><td><img class="arial" src="{% static 'imgs/arial.png' %}" /></td></tr>
+                        <tr><th>Телевизор</th><td></td></tr>
+                        <tr><th>Микроволновка</th><td></td></tr>
+                    </table>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="col-md-2 text-justify">
+        {% include 'include/right_panel.html' %}
+
+    </div>
+{% endblock %}
