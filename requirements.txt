@@ -1,0 +1,9 @@
+git+https://github.com/rodrigolins/Django-tinymce-filebrowser.git
+git+https://github.com/sp1ky/django-flatpages-tinymce.git
+yandex-maps
+Django==1.8.7
+Pillow==3.0.0
+django-filebrowser==3.6.1
+django-grappelli==2.7.2
+django-tinymce==2.2.0
+pytz==2015.7
