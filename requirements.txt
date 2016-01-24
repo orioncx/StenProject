@@ -7,4 +7,4 @@ django-filebrowser==3.6.1
 django-grappelli==2.7.2
 django-tinymce==2.2.0
 pytz==2015.7
-django-rosetta
+django-rosetta==0.7.8
