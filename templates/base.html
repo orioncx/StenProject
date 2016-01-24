@@ -1,5 +1,6 @@
-{% load static flatpages %}
-{% get_flatpages as flatpages %}
+{% load static i18n %}
+{#{% get_flatpages as flatpages %}#}
+{% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,13 +51,19 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/">GomelHome.by</a>
+          <a class="navbar-brand lang_change" data-lang="ru" href="javascript:;">{% ifequal LANGUAGE_CODE 'ru'%}<strong>RU</strong>{% else %}RU{% endifequal %}</a>
+          <a class="navbar-brand lang_change" data-lang="en"  href="javascript:;">{% ifequal LANGUAGE_CODE 'en'%}<strong>EN</strong>{% else %}EN{% endifequal %}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
+        <form id="lang_change_form" action="{% url 'set_language' %}" method="post">
+            {% csrf_token %}
+            <input name="next" type="hidden" value="{{ request.path }}"/>
+            <input id="lang_change_form_input" name="language" type="hidden" value=""/>
+        </form>
           <ul class="nav navbar-nav navbar-right">
-              <li {% ifequal request.path '/' %}class="active"{% endifequal %}><a href="/">Квартиры</a></li>
-              {% for page in flatpages %}
-                  <li {% ifequal request.path page.url %}class="active"{% endifequal %}><a href="{{ page.url }}">{{ page.title }}</a></li>
-              {% endfor %}
+
+              <li {% ifequal request.path '/' %}class="active"{% endifequal %}><a href="/">{% trans 'Квартиры на сутки' %}</a></li>
+              <li {% ifequal request.path '/about_us/' %}class="active"{% endifequal %}><a href="{% url 'about_us' %}">{% trans 'О нас' %}</a></li>
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -65,6 +72,7 @@
 
 
     <div class="container">
+
         {% block body %}
       <!-- Main component for a primary marketing message or call to action -->
 
@@ -83,6 +91,13 @@
     <script src="{% static '3dparty/jq/jquery-1.11.3.min.js' %}" type="text/javascript"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="{% static '3dparty/bootstrap-3.3.6-dist/js/bootstrap.min.js' %}" type="text/javascript"></script>
+    <script type="text/javascript">
+        $('.lang_change').click(function(){
+            $('#lang_change_form_input').val($(this).data('lang'));
+            $('#lang_change_form').submit();
+        });
+
+    </script>
     {% block extra_footer_scripts %}
 
     {% endblock %}

@@ -20,6 +20,19 @@ body {
     border-radius: 15px;
     overflow: hidden;
 }
+.feedback{
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    border-style: solid;
+    border-width: 2px;
+    width: 100%;
+    min-height: 60px;
+    display: inline-block;
+    padding: 20px 20px;
+    margin-top: 10px;
+    border-radius: 15px;
+    overflow: hidden;
+}
 .flat img{
     /*width: 100%;*/
     max-height: 100%;
@@ -40,4 +53,36 @@ body {
 .flat img.arial{
     height: 25px;
     width: 30px;
+}
+
+.operator{
+    width: 25px;
+}
+
+.list_photo{
+    overflow: hidden;
+}
+.list_text{
+    padding-left: 15px !important;
+}
+
+.rating .star,.rating-symbol-foreground{
+    color: #ff8e00;
+}
+.rating-symbol-foreground{
+    cursor: pointer;
+}
+
+#feedback_form textarea{
+    width: 100%;
+    min-height: 100px;
+}
+
+.msg-comment{
+    min-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 7px;
+    display: none;
 }

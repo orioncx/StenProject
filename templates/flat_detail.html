@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static rate i18n %}
 {% block add_header_css %}
     {#    <link href="{% static '3dparty/galleria/themes/classic/galleria.classic.css' %}" rel="stylesheet">#}
     <link href="{% static '3dparty/galleria/themes/galleria-classicmod/galleria.classicmod.css' %}" rel="stylesheet">
+    <link href="{% static '3dparty/bootstrap-rating-master/bootstrap-rating.css' %}" rel="stylesheet">
 {% endblock %}
 
 {% block extra_footer_scripts %}
@@ -55,6 +56,29 @@
     }
     ymaps.ready(init);
     </script>
+    <script src="{% static '3dparty/bootstrap-rating-master/bootstrap-rating.min.js' %}"></script>
+    <script type="text/javascript">
+
+    $('#star_rate_input').rating();
+    $(document).on('click','#comment_button',function(){
+        $(this).hide();
+        $('#feedback_form').fadeIn('slow');
+
+    });
+    $(document).on('click','#form_submit',function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var form = $('form','#feedback_form');
+        $.post( "", form.serialize()).success(function(data){
+            if(data.success){
+                $('#feedback_form').fadeOut('slow');
+                $("#comment_success").show('slow');
+            }
+        }).error(function(){
+            $("#comment_error").fadeIn('slow');
+        });
+    });
+    </script>
 
 {% endblock %}
 
@@ -67,9 +91,57 @@
 
 {#        <div>{{ flat.description|safe }}</div>#}
     <div id="map" style="width: 100%; height: 400px"></div>
+        <h3>{% trans "Отзывы" %}:</h3>
+        {% for feedback in feedbacks %}
+        <div class="feedback">
+            <div class="rating">
+                {% stars feedback.rate %}<i><span> {{ feedback.name }} ({{ feedback.country }})</span><span> {{ feedback.created_at }}</span></i>
+            </div>
+            {{ feedback.text }}
+        </div>
+            {% empty %}
+            {% trans "Здесь пока нет ни одного отзыва" %}
+        {% endfor %}
+    <div >
+        <p id="comment_success" class="bg-success msg-comment">{% trans "Спасибо. Ваш комментарий принят." %}</p>
+        <p id="comment_error" class="bg-danger msg-comment">{% trans "Ошибка. Перезагрузите страницу и попробуйте еще раз." %}</p>
+    </div>
+    <div id="feedback_form" style="display: none" class="feedback">
+        <form class="form-inline" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="InputName2">{% trans 'Имя' %}:</label>
+                <input type="text" class="form-control" name="name" required="required" id="InputName2" placeholder="{% trans "Иван Иванов" %}">
+            </div>
+            <div class="form-group">
+                <label for="InputCountry2">{% trans 'Откуда' %}:</label>
+                <input type="text" class="form-control" name="country" required="required" id="InputCountry2" placeholder="{% trans "Россия, Москва" %}">
+            </div>
+            <div class="form-group">
+                <label for="star_rate_input">{% trans 'Оценка' %}:</label>
+                <input type="hidden" name="rate" id="star_rate_input" class="rating"/>
+            </div>
+            <div><br/>
+                <label for="comment">{% trans "Комментарий" %}:</label><br/>
+                <textarea id="comment" class="form-control" name="text" placeholder="{% trans "Все очень понравилось =)" %}"></textarea>
+            </div>
+            <div class="text-right"><br/>
+                <button type="submit" class="btn btn-primary" id="form_submit">{% trans "Отправить" %}</button>
+            </div>
+        </form>
+    </div>
+    {% if not has_commented %}
+    <div class="text-right">
+        <a href="#feedback_form" class="btn bg-primary" id="comment_button">{% trans "Оставить отзыв" %}</a>
+    </div>
+    {% endif %}
+
     </div>
     <div class="col-md-4 text-justify">
         {% include 'include/right_panel.html' %}
+        <br/>
+        <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+        <br/>
         <div>{{ flat.description|safe }}</div>
     </div>
 
