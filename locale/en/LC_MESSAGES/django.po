@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-24 11:04+0000\n"
+"PO-Revision-Date: 2016-01-24 11:04+0000\n"
+"Last-Translator:   <rr@rr.rr>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Translated-Using: django-rosetta 0.7.8\n"
+
+#: base/models.py:10
+msgid "Обозначение"
+msgstr ""
+
+#: base/models.py:17 base/models.py:37
+msgid "Заголовок"
+msgstr "Header"
+
+#: base/models.py:18
+msgid "Адрес страницы"
+msgstr ""
+
+#: base/models.py:21
+msgid "Район"
+msgstr "District"
+
+#: base/models.py:22
+msgid "Адрес"
+msgstr "Address"
+
+#: base/models.py:24 base/models.py:38
+msgid "Описание"
+msgstr "Description"
+
+#: base/models.py:25
+msgid "Координаты"
+msgstr "Coords"
+
+#: base/models.py:26
+msgid "Количество комнат"
+msgstr "Rooms"
+
+#: base/models.py:28
+msgid "Фишки"
+msgstr "Features"
+
+#: base/models.py:35 base/models.py:45
+msgid "Квартира"
+msgstr "Flat"
+
+#: base/models.py:49 templates/flat_detail.html:145
+msgid "Имя"
+msgstr "Name"
+
+#: base/models.py:50
+msgid "Отзыв"
+msgstr "Review"
+
+#: gomelHome/settings.py:131
+msgid "Russian"
+msgstr "Russian"
+
+#: gomelHome/settings.py:132
+msgid "English"
+msgstr "English"
+
+#: templates/about_us.html:4 templates/base.html:66
+msgid "О нас"
+msgstr "About us"
+
+#: templates/about_us.html:6
+msgid ""
+"\n"
+"ИП Казукевич Н.Е.<br/>\n"
+"УНП 491287836       <br/>\n"
+"Свидетельство о государственной регистрации  от  11.12.2014  <br/>\n"
+"E-mail: gomelhome1@gmail.com                    <br/>\n"
+"Телефоны: +375296784721     <br/>\n"
+"+375298307377<br/>\n"
+msgstr ""
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: templates/base.html:65
+msgid "Квартиры на сутки"
+msgstr "Apartments for a day"
+
+#: templates/flat_detail.html:126
+msgid "Отзывы"
+msgstr "Feedbacks"
+
+#: templates/flat_detail.html:135
+msgid "Здесь пока нет ни одного отзыва"
+msgstr "There are still no any feedbacks. Please left new one =)"
+
+#: templates/flat_detail.html:138
+msgid "Спасибо. Ваш комментарий принят."
+msgstr ""
+
+#: templates/flat_detail.html:139
+msgid "Ошибка. Перезагрузите страницу и попробуйте еще раз."
+msgstr ""
+
+#: templates/flat_detail.html:146
+msgid "Иван Иванов"
+msgstr "Jane Doe"
+
+#: templates/flat_detail.html:149
+msgid "Откуда"
+msgstr "From"
+
+#: templates/flat_detail.html:150
+msgid "Россия, Москва"
+msgstr "USA, NY"
+
+#: templates/flat_detail.html:153
+msgid "Оценка"
+msgstr "Rate"
+
+#: templates/flat_detail.html:157 templates/flat_detail.html.py:240
+msgid "Комментарий"
+msgstr "Comment"
+
+#: templates/flat_detail.html:158
+msgid "Все очень понравилось =)"
+msgstr "Eversome =)"
+
+#: templates/flat_detail.html:161
+#, fuzzy
+#| msgid "Оставить отзыв"
+msgid "Отправить"
+msgstr "Left feedback"
+
+#: templates/flat_detail.html:167
+msgid "Оставить отзыв"
+msgstr "Left feedback"
+
+#: templates/flat_detail.html:175
+#| msgid "Снять эту квартиру."
+msgid "Снять эту квартиру"
+msgstr "Rent this apartment"
+
+#: templates/flat_detail.html:193 templates/include/right_panel.html:2
+msgid "Снять квартиру"
+msgstr "Rent an apartment"
+
+#: templates/flat_detail.html:198
+msgid "Дата заезда"
+msgstr "From"
+
+#: templates/flat_detail.html:210
+msgid "Дата отъезда"
+msgstr "To"
+
+#: templates/flat_detail.html:221
+msgid "Телефон для связи"
+msgstr "Phone"
+
+#: templates/flat_detail.html:226
+msgid "Количество человек"
+msgstr "Rooms"
+
+#: templates/flat_detail.html:247
+msgid "Отмена"
+msgstr "Cancel"
+
+#: templates/flat_detail.html:249
+msgid "Отправить заявку"
+msgstr "Left feedback"
+
+#: templates/flat_detail.html:263
+msgid "Заявка отправлена"
+msgstr ""
+
+#: templates/flat_detail.html:266
+msgid "Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время."
+msgstr ""

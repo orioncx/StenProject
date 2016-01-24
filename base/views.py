@@ -1,26 +1,43 @@
+# -*- encoding: utf-8 -*-
 import json
-from django import http
-from django.conf import settings
-from django.core.urlresolvers import reverse, reverse_lazy
 from django.http import JsonResponse
-from django.shortcuts import render, get_object_or_404
-
-# Create your views here.
-from django.utils.translation import check_for_language
+from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView
 from base.forms import FeedbackForm
 from base.models import Flat, FlatPhoto, Feedback
-from django.db.models import Q
-from django.utils import translation
+from django.core.mail import send_mail
+from django.conf import settings
+
+
+def rent_form_sent(request):
+    # try:
+        date_from = request.POST.get('date_from')
+        flat = request.POST.get('flat')
+        date_to = request.POST.get('date_to')
+        phone = request.POST.get('phone')
+        count = request.POST.get('count')
+        comment = request.POST.get('comment')
+
+        msg_txt = u"""\n
+        Квартира: %s \n
+        с: %s \n
+        по: %s \n
+        человек: %s \n
+        телефон: %s \n
+        комментарий: %s \n
+        """ % (flat, date_from, date_to, count, phone, comment)
+
+        send_mail(u'Заявка на съем квартиры', msg_txt, settings.DEFAULT_FROM_EMAIL, [settings.TO_EMAIL])
+        return JsonResponse({'success': True})
+    # except:
+    #     pass
+
+    # return JsonResponse({'success': False}, status=400)
 
 
 class FlatDetailView(FormView):
     template_name = 'flat_detail.html'
     form_class = FeedbackForm
-
-    # def get_success_url(self):
-    #     url = reverse_lazy('flat_detail')
-    #     return "%s%s/" % (url, self.kwargs['slug'])
 
     def get_context_data(self, **kwargs):
         context = super(FlatDetailView, self).get_context_data(**kwargs)
@@ -55,6 +72,13 @@ class FlatDetailView(FormView):
         feedback = form.save(commit=False)
         feedback.flat = flat
         feedback.save()
+
+        msg_txt = u"""\n
+        Получен новый комментарий. Утвердите его в админке. \n
+        >
+        "%s"
+        """ % feedback.text
+        send_mail(u'Комментарий', msg_txt, settings.DEFAULT_FROM_EMAIL, [settings.TO_EMAIL])
         self.request.session['has_commented_%s' % flat.pk] = True
         return JsonResponse({'success': True})
 

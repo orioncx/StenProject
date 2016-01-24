@@ -73,8 +73,8 @@ body {
     cursor: pointer;
 }
 
-#feedback_form textarea{
-    width: 100%;
+textarea{
+    width: 100% !important;
     min-height: 100px;
 }
 

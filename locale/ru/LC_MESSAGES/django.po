@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-01-24 11:04+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#: base/models.py:10
+msgid "Обозначение"
+msgstr ""
+
+#: base/models.py:17 base/models.py:37
+msgid "Заголовок"
+msgstr ""
+
+#: base/models.py:18
+msgid "Адрес страницы"
+msgstr ""
+
+#: base/models.py:21
+msgid "Район"
+msgstr ""
+
+#: base/models.py:22
+msgid "Адрес"
+msgstr ""
+
+#: base/models.py:24 base/models.py:38
+msgid "Описание"
+msgstr ""
+
+#: base/models.py:25
+msgid "Координаты"
+msgstr ""
+
+#: base/models.py:26
+msgid "Количество комнат"
+msgstr ""
+
+#: base/models.py:28
+msgid "Фишки"
+msgstr ""
+
+#: base/models.py:35 base/models.py:45
+msgid "Квартира"
+msgstr ""
+
+#: base/models.py:49 templates/flat_detail.html:145
+msgid "Имя"
+msgstr ""
+
+#: base/models.py:50
+msgid "Отзыв"
+msgstr ""
+
+#: gomelHome/settings.py:131
+msgid "Russian"
+msgstr ""
+
+#: gomelHome/settings.py:132
+msgid "English"
+msgstr ""
+
+#: templates/about_us.html:4 templates/base.html:66
+msgid "О нас"
+msgstr ""
+
+#: templates/about_us.html:6
+msgid ""
+"\n"
+"ИП Казукевич Н.Е.<br/>\n"
+"УНП 491287836       <br/>\n"
+"Свидетельство о государственной регистрации  от  11.12.2014  <br/>\n"
+"E-mail: gomelhome1@gmail.com                    <br/>\n"
+"Телефоны: +375296784721     <br/>\n"
+"+375298307377<br/>\n"
+msgstr ""
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: templates/base.html:65
+msgid "Квартиры на сутки"
+msgstr ""
+
+#: templates/flat_detail.html:126
+msgid "Отзывы"
+msgstr ""
+
+#: templates/flat_detail.html:135
+msgid "Здесь пока нет ни одного отзыва"
+msgstr ""
+
+#: templates/flat_detail.html:138
+msgid "Спасибо. Ваш комментарий принят."
+msgstr ""
+
+#: templates/flat_detail.html:139
+msgid "Ошибка. Перезагрузите страницу и попробуйте еще раз."
+msgstr ""
+
+#: templates/flat_detail.html:146
+msgid "Иван Иванов"
+msgstr ""
+
+#: templates/flat_detail.html:149
+msgid "Откуда"
+msgstr ""
+
+#: templates/flat_detail.html:150
+msgid "Россия, Москва"
+msgstr ""
+
+#: templates/flat_detail.html:153
+msgid "Оценка"
+msgstr ""
+
+#: templates/flat_detail.html:157 templates/flat_detail.html.py:240
+msgid "Комментарий"
+msgstr ""
+
+#: templates/flat_detail.html:158
+msgid "Все очень понравилось =)"
+msgstr ""
+
+#: templates/flat_detail.html:161
+msgid "Отправить"
+msgstr ""
+
+#: templates/flat_detail.html:167
+msgid "Оставить отзыв"
+msgstr ""
+
+#: templates/flat_detail.html:175
+msgid "Снять эту квартиру"
+msgstr ""
+
+#: templates/flat_detail.html:193 templates/include/right_panel.html:2
+msgid "Снять квартиру"
+msgstr ""
+
+#: templates/flat_detail.html:198
+msgid "Дата заезда"
+msgstr ""
+
+#: templates/flat_detail.html:210
+msgid "Дата отъезда"
+msgstr ""
+
+#: templates/flat_detail.html:221
+msgid "Телефон для связи"
+msgstr ""
+
+#: templates/flat_detail.html:226
+msgid "Количество человек"
+msgstr ""
+
+#: templates/flat_detail.html:247
+msgid "Отмена"
+msgstr ""
+
+#: templates/flat_detail.html:249
+msgid "Отправить заявку"
+msgstr ""
+
+#: templates/flat_detail.html:263
+msgid "Заявка отправлена"
+msgstr ""
+
+#: templates/flat_detail.html:266
+msgid "Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время."
+msgstr ""

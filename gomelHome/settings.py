@@ -180,5 +180,18 @@ TINYMCE_DEFAULT_CONFIG = {
   'file_browser_callback': 'mce_filebrowser'
 }
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
-YANDEX_MAPS_API_KEY = "AEuXilYBAAAAzDlWfgQAsQF0RyXbc4uQZoSki2GpvE3GTYwAAAAAAAAAAAAextFfoLxPX-aV26lnFLYK-Y5BaA=="
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = '*'
+EMAIL_HOST_PASSWORD = '*'
+EMAIL_PORT = 587
+DEFAULT_FROM_EMAIL = '*'
+TO_EMAIL = '*'
+
+
+try:
+    from local_settings import *
+except:
+    pass
