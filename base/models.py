@@ -3,29 +3,31 @@ from django.db import models
 from tinymce.models import HTMLField
 from filebrowser.fields import FileBrowseField
 from django.utils.translation import ugettext as _
+import datetime
 
 
-# Create your models here.
-class FlatFeatures(models.Model):
-    name = models.CharField(max_length=31, verbose_name=_(u'Обозначение'))
-
-    def __unicode__(self):
-        return self.name or ''
+# # Create your models here.
+# class FlatFeatures(models.Model):
+#     name = models.CharField(max_length=31, verbose_name=_(u'Обозначение'))
+#
+#     def __unicode__(self):
+#         return self.name or ''
 
 
 class Flat(models.Model):
     title = models.CharField(null=True, blank=True, max_length=255, verbose_name=_(u'Заголовок'))
     slug = models.SlugField(null=True, blank=True, max_length=255, verbose_name=_(u'Адрес страницы'))
-    price_usd = models.IntegerField(null=True)
-    price_byr = models.IntegerField(null=True)
+    price_usd = models.CharField(null=True, blank=True, max_length=63, verbose_name=u'Цена в долларах')
+    price_byr = models.CharField(null=True, blank=True, max_length=63, verbose_name=u'Цена в белках')
     district = models.CharField(null=True, blank=True, max_length=255, verbose_name=_(u'Район'))
     adress = models.CharField(max_length=255, null=True, blank=True, verbose_name=_(u'Адрес'))
     image = FileBrowseField("Image", max_length=200, blank=True, null=True)
     description = HTMLField(null=True, blank=True, verbose_name=_(u'Описание'))
-    coords = models.CharField(null=True, blank=True, max_length=31, verbose_name=_(u'Координаты'), help_text='52.44167,30.98333')
+    coords = models.CharField(null=True, blank=True, max_length=31, verbose_name=_(u'Координаты'), help_text=u'52.44167,30.98333')
     rooms = models.IntegerField(null=True, blank=True, verbose_name=_(u'Количество комнат'))
+    updated_at = models.DateTimeField(auto_now=True)
 
-    features = models.ManyToManyField(FlatFeatures, null=True, blank=True, verbose_name=_(u'Фишки'))
+    # features = models.ManyToManyField(FlatFeatures, null=True, blank=True, verbose_name=_(u'Фишки'))
 
     def __unicode__(self):
         return self.title or u''

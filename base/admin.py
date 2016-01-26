@@ -2,7 +2,7 @@ from django.contrib import admin
 from mce_filebrowser.admin import MCEFilebrowserAdmin
 # Register your models here.
 
-from models import Flat, FlatPhoto, FlatFeatures, Feedback
+from models import Flat, FlatPhoto, Feedback
 
 
 class FlatAdmin(MCEFilebrowserAdmin):
@@ -12,4 +12,4 @@ class FlatAdmin(MCEFilebrowserAdmin):
 admin.site.register(Flat, FlatAdmin)
 admin.site.register(Feedback)
 admin.site.register(FlatPhoto)
-admin.site.register(FlatFeatures)
+# admin.site.register(FlatFeatures)

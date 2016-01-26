@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static fb_versions %}
+{% load static fb_versions i18n %}
 {% block body %}
 
     <div class="col-md-9">
@@ -9,19 +9,29 @@
                     <img src="{% version flat.image 'big' %}"/>
                 </div>
                 <div class="col-sm-5 list_text">
-                    <a class="flat_list_header" href="{% url 'flat_detail' flat.slug %}"><h4>{{ flat.title }}</h4></a>
-                    Price: (80.000 BYR)(~52usd)
-{#                    <table class="table table-striped table-hover">#}
-{#                        {% for feature in flat.features.all %}#}
-{#                        <tr><th>{{ feature.name }}</th><td><img class="arial" src="{% static 'imgs/arial.png' %}" /></td></tr>#}
-{#                        {% endfor %}#}
-{#                    </table>#}
+                    <div class="description">
+                        <div>
+                            <a class="flat_list_header" href="{% url 'flat_detail' flat.slug %}">
+                                <h4>{{ flat.title }}</h4>
+                            </a>
+                            <strong>{% trans "Цена" %}:</strong>
+                            <span class="pr_byr"> {{ flat.price_byr }} BYR </span>
+                            <span class="pr_usd"> ~{{ flat.price_usd }} usd </span><br>
+                            <strong>{% trans "Район" %}:</strong><span class="desc_param"> {{ flat.district }}</span><br>
+                            <strong>{% trans "Комнат" %}:</strong><span class="desc_param"> {{ flat.rooms }}</span><br>
+                        </div>
+                        <div>
+                            <strong>{% trans "Информация" %}:</strong>
+                            <div class="desc_param">
+                                {{ flat.description|safe }}
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         {% endfor %}
     </div>
     <div class="col-md-3 text-left">
         {% include 'include/right_panel.html' %}
-
     </div>
 {% endblock %}

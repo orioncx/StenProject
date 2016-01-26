@@ -16,11 +16,38 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from django.core.urlresolvers import reverse, reverse_lazy
 from filebrowser.sites import site
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.flatpages.sitemaps import FlatPageSitemap
 from django.contrib.sitemaps.views import sitemap
+from django.contrib.sitemaps import GenericSitemap, Sitemap
+from base.models import Flat
+
+
+class BlogSitemap(Sitemap):
+    priority = 0.5
+
+    def items(self):
+        return Flat.objects.all()
+
+    def lastmod(self, obj):
+        return obj.updated_at
+
+    def location(self, obj):
+        return "/flat/%s/" % obj.slug
+
+
+class StaticViewSitemap(Sitemap):
+    priority = 0.6
+
+    def items(self):
+        return ['flat_list', 'about_us']
+
+    def location(self, item):
+        return reverse_lazy(item)
+
 
 urlpatterns = [
     url(r'^admin/filebrowser/', include(site.urls)),
@@ -30,7 +57,7 @@ urlpatterns = [
     url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
     url(r'^', include('base.urls')),
     url(r'^rosetta/', include('rosetta.urls')),
-    url(r'^sitemap\.xml$', sitemap,
-        {'sitemaps': {'flatpages': FlatPageSitemap}},
-        name='django.contrib.sitemaps.views.sitemap'),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  url(r'^sitemap\.xml$', sitemap,
+                      {'sitemaps': {'flats': BlogSitemap(), 'static': StaticViewSitemap()}},
+                      name='django.contrib.sitemaps.views.sitemap'),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
