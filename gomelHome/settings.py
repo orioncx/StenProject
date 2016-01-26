@@ -182,14 +182,6 @@ TINYMCE_DEFAULT_CONFIG = {
   'file_browser_callback': 'mce_filebrowser'
 }
 
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-    }
-}
-ROSETTA_STORAGE_CLASS = 'rosetta.storage.CacheRosettaStorage'
-ROSETTA_CACHE_NAME = 'default'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

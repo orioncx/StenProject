@@ -8,7 +8,9 @@
     <link href="{% static '3dparty/bootstrap-rating-master/bootstrap-rating.css' %}" rel="stylesheet">
     <link href="{% static '3dparty/bootstrap-datepicker/css/bootstrap-datepicker.min.css' %}" rel="stylesheet">
 {% endblock %}
-
+{% block add_header_js %}
+    <script src="https://api-maps.yandex.ru/2.1/?lang={% ifequal LANGUAGE_CODE 'ru' %}ru_RU{% else %}en_US{% endifequal %}" type="text/javascript"></script>
+      {% endblock %}
 {% block extra_footer_scripts %}
     <script type="text/javascript">
         var photos = {{ photos|safe }};

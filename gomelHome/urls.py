@@ -24,6 +24,9 @@ from django.contrib.flatpages.sitemaps import FlatPageSitemap
 from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap, Sitemap
 from base.models import Flat
+from django.conf.urls import url, include
+from django.conf.urls.i18n import i18n_patterns
+from base.views import FlatDetailView, FlatListView,AboutUsView, rent_form_sent
 
 
 class BlogSitemap(Sitemap):
@@ -50,14 +53,23 @@ class StaticViewSitemap(Sitemap):
 
 
 urlpatterns = [
-    url(r'^admin/filebrowser/', include(site.urls)),
-    url(r'^grappelli/', include('grappelli.urls')),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^tinymce/', include('tinymce.urls')),
-    url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
-    url(r'^', include('base.urls')),
-    url(r'^rosetta/', include('rosetta.urls')),
+                  url(r'^admin/filebrowser/', include(site.urls)),
+                  url(r'^grappelli/', include('grappelli.urls')),
+                  url(r'^admin/', include(admin.site.urls)),
+                  url(r'^tinymce/', include('tinymce.urls')),
+                  url(r'^mce_filebrowser/', include('mce_filebrowser.urls')),
+                  url(r'^', include('base.urls')),
+                  url(r'^rosetta/', include('rosetta.urls')),
                   url(r'^sitemap\.xml$', sitemap,
                       {'sitemaps': {'flats': BlogSitemap(), 'static': StaticViewSitemap()}},
                       name='django.contrib.sitemaps.views.sitemap'),
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += i18n_patterns(
+    url(r'^flat/(?P<slug>[\w-]+)/$', FlatDetailView.as_view(),
+        name='flat_detail'),
+    url(r'^flat/$', FlatDetailView.as_view(),
+        name='flat_detail'),
+    url(r'^$', FlatListView.as_view(),
+        name='flat_list'),
+)
