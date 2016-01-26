@@ -57,6 +57,7 @@ class FlatDetailView(FormView):
         context['photos'] = json.dumps(galery_photos)
         context['feedbacks'] = feedbacks
         context['flat'] = flat
+        context['page'] = 'flats'
         if self.request.session.get('has_commented_%s' % flat.pk, False):
             context['has_commented'] = True
         return context
@@ -89,3 +90,7 @@ class AboutUsView(TemplateView):
 class FlatListView(ListView):
     model = Flat
     template_name = 'flat_list.html'
+    def get_context_data(self, **kwargs):
+        context = super(FlatListView, self).get_context_data(**kwargs)
+        context['page'] = 'flats'
+        return context
