@@ -9,3 +9,4 @@ django-tinymce==2.2.0
 pytz==2015.7
 django-rosetta==0.7.8
 django-modeltranslation
+python-memcached
