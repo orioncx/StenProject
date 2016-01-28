@@ -12,14 +12,17 @@
                 <div class="col-sm-5 list_text">
                     <div class="description">
                         <div>
+                            <span class="desc_param room_count"> {{ flat.rooms }} комн.</span>
                             <a class="flat_list_header" href="{% url 'flat_detail' flat.slug %}">
                                 <h4>{{ flat.title }}</h4>
                             </a>
+                            <span class="desc_param district"> {{ flat.district }}</span><br>
 {#                            <strong>{% trans "Цена" %}:</strong>#}
+                            <div class="flat_price_cont">
                             <span class="pr_byr"> {{ flat.price_byr }} BYR </span>
                             <span class="pr_usd"> ~{{ flat.price_usd }} usd </span><br>
-                            <span class="desc_param"> {{ flat.district }}</span><br>
-                            <span class="desc_param"> {{ flat.rooms }} комн.</span><br>
+                            </div>
+
                         </div>
                         <div>
                             <div class="desc_param">

@@ -7,7 +7,7 @@ body {
 }
 
 .flat {
-    background-color: rgb(231,  240,235);
+    background-color: rgba(231,  240,235, 0.4);
     border-color: rgb(220, 229, 224);
     border-style: solid;
     border-width: 2px;
@@ -17,7 +17,7 @@ body {
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 0;
-    border-radius: 15px;
+    border-radius: 5px;
     overflow: hidden;
 }
 .feedback{
@@ -134,8 +134,13 @@ textarea{
 
 }
 .desc_param{
-    font-style: italic;
+    /*font-style: italic;*/
 }
+.desc_param.district,.flat_price_cont {
+    position: relative;
+    top: -0.33em;
+}
+
 
 .datepicker table tr td.highlighted {
     background: rgba(107, 183, 109, 0.33) !important;
@@ -149,6 +154,25 @@ textarea{
 }
 .active_page_num{
     background: rgba(91, 206, 168, 0.5);
+}
+.nav li:hover{
+    background: rgba(91, 206, 168, 0.5);
+}
+.flat_list_header h4{
+    margin-bottom: 0;
+}
+.flat_price_cont{
+    margin: 5px 0;
+}
+
+.room_count{
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    background-color: rgb(58, 116, 88);
+    border-radius: 2px;
+    padding: 3px;
+    color: white;
 }
 
 /*.list_text{*/
