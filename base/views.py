@@ -88,7 +88,9 @@ class AboutUsView(TemplateView):
 
 
 class FlatListView(ListView):
-    model = Flat
+    def get_queryset(self):
+        return Flat.objects.filter(show_on_index=True)
+
     template_name = 'flat_list.html'
     def get_context_data(self, **kwargs):
         context = super(FlatListView, self).get_context_data(**kwargs)

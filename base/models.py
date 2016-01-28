@@ -27,6 +27,7 @@ class Flat(models.Model):
     coords = models.CharField(null=True, blank=True, max_length=31, verbose_name=_(u'Координаты'), help_text=u'52.44167,30.98333')
     rooms = models.IntegerField(null=True, blank=True, verbose_name=_(u'Количество комнат'))
     updated_at = models.DateTimeField(auto_now=True)
+    show_on_index = models.BooleanField(default=True, verbose_name=_(u'На главной'))
 
     # features = models.ManyToManyField(FlatFeatures, null=True, blank=True, verbose_name=_(u'Фишки'))
 
