@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-26 14:51+0000\n"
+"POT-Creation-Date: 2016-01-28 21:25+0000\n"
 "PO-Revision-Date: 2016-01-26 14:52+0000\n"
 "Last-Translator:   <rr@rr.rr>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: \n"
 "X-Translated-Using: django-rosetta 0.7.8\n"
 
-#: base/models.py:18 base/models.py:39
+#: base/models.py:18 base/models.py:41
 msgid "Заголовок"
 msgstr "Header"
 
@@ -26,48 +26,57 @@ msgstr "Header"
 msgid "Адрес страницы"
 msgstr ""
 
-#: base/models.py:22 templates/flat_detail.html:194
-#: templates/flat_list.html:20
+#: base/models.py:22 templates/flat_detail.html:201
 msgid "Район"
 msgstr "District"
 
-#: base/models.py:23
+#: base/models.py:23 templates/flat_detail.html:203
 msgid "Адрес"
 msgstr "Address"
 
-#: base/models.py:25 base/models.py:40
+#: base/models.py:25 base/models.py:42
 msgid "Описание"
 msgstr "Description"
 
 #: base/models.py:26
+#, fuzzy
+#| msgid "Описание"
+msgid "Краткое описание"
+msgstr "Description"
+
+#: base/models.py:27
 msgid "Координаты"
 msgstr "Coords"
 
-#: base/models.py:27
+#: base/models.py:28
 msgid "Количество комнат"
 msgstr "Rooms"
 
-#: base/models.py:37 base/models.py:47
+#: base/models.py:30
+msgid "На главной"
+msgstr ""
+
+#: base/models.py:39 base/models.py:49
 msgid "Квартира"
 msgstr "Flat"
 
-#: base/models.py:51 templates/flat_detail.html:149
+#: base/models.py:53 templates/flat_detail.html:159
 msgid "Имя"
 msgstr "Name"
 
-#: base/models.py:52
+#: base/models.py:54
 msgid "Отзыв"
 msgstr "Review"
 
-#: gomelHome/settings.py:132
+#: gomelHome/settings.py:133
 msgid "Russian"
 msgstr "Russian"
 
-#: gomelHome/settings.py:133
+#: gomelHome/settings.py:134
 msgid "English"
 msgstr "English"
 
-#: templates/about_us.html:4 templates/base.html:66
+#: templates/about_us.html:4 templates/base.html:67
 msgid "О нас"
 msgstr "About us"
 
@@ -86,110 +95,115 @@ msgstr ""
 msgid "Django site admin"
 msgstr ""
 
-#: templates/base.html:65
+#: templates/base.html:66
 msgid "Квартиры на сутки"
 msgstr "Apartments for a day"
 
-#: templates/flat_detail.html:128
+#: templates/flat_detail.html:130
 msgid "Отзывы"
 msgstr "Feedbacks"
 
-#: templates/flat_detail.html:137
+#: templates/flat_detail.html:139
 msgid "Здесь пока нет ни одного отзыва"
 msgstr "There are still no any feedbacks. Please left new one =)"
 
-#: templates/flat_detail.html:140
+#: templates/flat_detail.html:150
 msgid "Спасибо. Ваш комментарий принят."
 msgstr ""
 
-#: templates/flat_detail.html:143
+#: templates/flat_detail.html:153
 msgid "Ошибка. Перезагрузите страницу и попробуйте еще раз."
 msgstr ""
 
-#: templates/flat_detail.html:151
+#: templates/flat_detail.html:161
 msgid "Иван Иванов"
 msgstr "Jane Doe"
 
-#: templates/flat_detail.html:154
+#: templates/flat_detail.html:164
 msgid "Откуда"
 msgstr "From"
 
-#: templates/flat_detail.html:156
+#: templates/flat_detail.html:166
 msgid "Россия, Москва"
 msgstr "USA, NY"
 
-#: templates/flat_detail.html:159
+#: templates/flat_detail.html:169
 msgid "Оценка"
 msgstr "Rate"
 
-#: templates/flat_detail.html:163 templates/flat_detail.html.py:268
+#: templates/flat_detail.html:173 templates/flat_detail.html.py:276
 msgid "Комментарий"
 msgstr "Comment"
 
-#: templates/flat_detail.html:165
+#: templates/flat_detail.html:175
 msgid "Все очень понравилось =)"
 msgstr "Eversome =)"
 
-#: templates/flat_detail.html:168
-#| msgid "Оставить отзыв"
+#: templates/flat_detail.html:178
 msgid "Отправить"
 msgstr "Left feedback"
 
-#: templates/flat_detail.html:174
+#: templates/flat_detail.html:184
 msgid "Оставить отзыв"
 msgstr "Left feedback"
 
-#: templates/flat_detail.html:183
+#: templates/flat_detail.html:193
 msgid "Снять эту квартиру"
 msgstr "Rent this apartment"
 
-#: templates/flat_detail.html:191 templates/flat_list.html:17
+#: templates/flat_detail.html:198
 msgid "Цена"
 msgstr "Price"
 
-#: templates/flat_detail.html:195 templates/flat_list.html:21
+#: templates/flat_detail.html:202
 msgid "Комнат"
 msgstr "Rooms"
 
-#: templates/flat_detail.html:199 templates/flat_list.html:25
+#: templates/flat_detail.html:207
 msgid "Информация"
 msgstr "Information"
 
-#: templates/flat_detail.html:221 templates/include/right_panel.html:2
+#: templates/flat_detail.html:229 templates/include/right_panel.html:2
 msgid "Снять квартиру"
 msgstr "Rent an apartment"
 
-#: templates/flat_detail.html:226
+#: templates/flat_detail.html:234
 msgid "Дата заезда"
 msgstr "From"
 
-#: templates/flat_detail.html:238
+#: templates/flat_detail.html:246
 msgid "Дата отъезда"
 msgstr "To"
 
-#: templates/flat_detail.html:249
+#: templates/flat_detail.html:257
 msgid "Телефон для связи"
 msgstr "Phone"
 
-#: templates/flat_detail.html:254
+#: templates/flat_detail.html:262
 msgid "Количество человек"
 msgstr "Rooms"
 
-#: templates/flat_detail.html:276
+#: templates/flat_detail.html:284
 msgid "Отмена"
 msgstr "Cancel"
 
-#: templates/flat_detail.html:278
+#: templates/flat_detail.html:286
 msgid "Отправить заявку"
 msgstr "Left feedback"
 
-#: templates/flat_detail.html:292
+#: templates/flat_detail.html:300
 msgid "Заявка отправлена"
 msgstr ""
 
-#: templates/flat_detail.html:295
+#: templates/flat_detail.html:303
 msgid "Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время."
 msgstr ""
+
+#: templates/flat_list.html:6
+#, fuzzy
+#| msgid "Квартиры на сутки"
+msgid "Квартиры на сутки в Гомеле"
+msgstr "Apartments for a day"
 
 #~ msgid "Фишки"
 #~ msgstr "Features"
