@@ -23,6 +23,7 @@ class Flat(models.Model):
     adress = models.CharField(max_length=255, null=True, blank=True, verbose_name=_(u'Адрес'))
     image = FileBrowseField("Image", max_length=200, blank=True, null=True)
     description = HTMLField(null=True, blank=True, verbose_name=_(u'Описание'))
+    short_description = HTMLField(null=True, blank=True, verbose_name=_(u'Краткое описание'))
     coords = models.CharField(null=True, blank=True, max_length=31, verbose_name=_(u'Координаты'), help_text=u'52.44167,30.98333')
     rooms = models.IntegerField(null=True, blank=True, verbose_name=_(u'Количество комнат'))
     updated_at = models.DateTimeField(auto_now=True)

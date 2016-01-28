@@ -4,7 +4,7 @@ from models import Flat, FlatPhoto
 
 
 class FlatTranslationOptions(TranslationOptions):
-    fields = ('title','district', 'adress', 'description')
+    fields = ('title', 'district', 'adress', 'description', 'short_description')
 
 
 class FlatPhotoTranslationOptions(TranslationOptions):

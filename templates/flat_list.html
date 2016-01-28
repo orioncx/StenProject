@@ -3,10 +3,11 @@
 {% block body %}
 
     <div class="col-md-9">
+    <h2>Квартиры на сутки в Гомеле:</h2>
         {% for flat in object_list %}
             <div class="flat row">
                 <div class="col-sm-7 list_photo">
-                    <img src="{% version flat.image 'big' %}"/>
+                    <a href="{% url 'flat_detail' flat.slug %}"><img src="{% version flat.image 'big' %}"/></a>
                 </div>
                 <div class="col-sm-5 list_text">
                     <div class="description">
@@ -14,21 +15,20 @@
                             <a class="flat_list_header" href="{% url 'flat_detail' flat.slug %}">
                                 <h4>{{ flat.title }}</h4>
                             </a>
-                            <strong>{% trans "Цена" %}:</strong>
+{#                            <strong>{% trans "Цена" %}:</strong>#}
                             <span class="pr_byr"> {{ flat.price_byr }} BYR </span>
                             <span class="pr_usd"> ~{{ flat.price_usd }} usd </span><br>
-                            <strong>{% trans "Район" %}:</strong><span class="desc_param"> {{ flat.district }}</span><br>
-                            <strong>{% trans "Комнат" %}:</strong><span class="desc_param"> {{ flat.rooms }}</span><br>
+                            <span class="desc_param"> {{ flat.district }}</span><br>
+                            <span class="desc_param"> {{ flat.rooms }} комн.</span><br>
                         </div>
                         <div>
-                            <strong>{% trans "Информация" %}:</strong>
                             <div class="desc_param">
-                                {{ flat.description|safe }}
+                                {{ flat.short_description|safe }}
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div><br/><br/>
         {% endfor %}
     </div>
     <div class="col-md-3 text-left">
