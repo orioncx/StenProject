@@ -41,7 +41,7 @@ class FlatPhoto(models.Model):
     description = models.CharField(max_length=128, verbose_name=_(u'Описание'), blank=True, null=True)
 
     def __unicode__(self):
-        return self.title or u''
+        return u"%s - %s"%(self.flat.title, self.title) if self.flat else self.title
 
 
 class Feedback(models.Model):
