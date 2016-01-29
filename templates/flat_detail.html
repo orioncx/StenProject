@@ -180,7 +180,7 @@
         {% include 'include/right_panel.html' %}
         <br/>
         <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                data-target="#rentModal">{% trans "Снять эту квартиру" %}</button>
+                data-target="#rentModal">{% trans "Сделать заявку" %}</button>
         <br/>
 
         <div class="description">
@@ -219,8 +219,8 @@
                         <h4 class="modal-title" id="myModalLabel">{% trans "Снять квартиру" %}</h4>
                     </div>
                     <div class="modal-body">
-
-                        <div class="form-group has-feedback">
+                        <div class="row">
+                        <div class="form-group has-feedback col-md-6">
                             <label class="control-label" for="date_from">{% trans "Дата заезда" %}</label>
 
                             <div class="input-group">
@@ -232,7 +232,7 @@
                             </div>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>
-                        <div class="form-group has-feedback">
+                        <div class="form-group has-feedback col-md-6">
                             <label class="control-label" for="date_to">{% trans "Дата отъезда" %}</label>
 
                             <div class="input-group">
@@ -242,10 +242,20 @@
                                        aria-describedby="inputGroupSuccess1Status">
                             </div>
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
+                        </div></div>
                         <div class="form-group has-feedback">
                             <label class="control-label" for="phone">{% trans "Телефон для связи" %}</label>
                             <input required="required" type="text" name="phone" class="form-control" id="phone"
+                                   aria-describedby="inputGroupSuccess1Status">
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="phone">{% trans "Имя" %}</label>
+                            <input required="required" type="text" name="name" class="form-control" id="name"
+                                   aria-describedby="inputGroupSuccess1Status">
+                        </div>
+                        <div class="form-group has-feedback">
+                            <label class="control-label" for="phone">{% trans "Email" %}</label>
+                            <input type="email" name="email" class="form-control" id="email"
                                    aria-describedby="inputGroupSuccess1Status">
                         </div>
                         <div class="form-group has-feedback">

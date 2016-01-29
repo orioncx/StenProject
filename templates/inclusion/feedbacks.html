@@ -1,8 +1,11 @@
 {% load static rate i18n %}
 <div class="feedback">
     {% for feedback in feedbacks %}
+        <div class="row">
         <div class="rating">
-            {% stars feedback.rate %}<i><span> {{ feedback.name }} ({{ feedback.country }})</span><span> {{ feedback.created_at }}</span></i>
+            <div class="col-md-12">{% stars feedback.rate %}</div>
+            <div class="col-md-12"><div><i> {{ feedback.name }} ({{ feedback.country }})</i></div><div><i> {{ feedback.created_at }}</i></div></div>
+        </div>
         </div>
         {{ feedback.text }}
         <hr/>

@@ -12,24 +12,28 @@ from django.conf import settings
 
 def rent_form_sent(request):
     # try:
-        date_from = request.POST.get('date_from')
-        flat = request.POST.get('flat')
-        date_to = request.POST.get('date_to')
-        phone = request.POST.get('phone')
-        count = request.POST.get('count')
-        comment = request.POST.get('comment')
+    date_from = request.POST.get('date_from')
+    flat = request.POST.get('flat')
+    date_to = request.POST.get('date_to')
+    phone = request.POST.get('phone')
+    count = request.POST.get('count')
+    comment = request.POST.get('comment')
+    email = request.POST.get('email')
+    name = request.POST.get('name')
 
-        msg_txt = u"""\n
+    msg_txt = u"""\n
         Квартира: %s \n
         с: %s \n
         по: %s \n
         человек: %s \n
+        Имя: %s \n
+        Email: %s \n
         телефон: %s \n
         комментарий: %s \n
-        """ % (flat, date_from, date_to, count, phone, comment)
+        """ % (flat, date_from, date_to, count, name, email, phone, comment)
 
-        send_mail(u'Заявка на съем квартиры', msg_txt, settings.DEFAULT_FROM_EMAIL, [settings.TO_EMAIL])
-        return JsonResponse({'success': True})
+    send_mail(u'Заявка на съем квартиры', msg_txt, settings.DEFAULT_FROM_EMAIL, [settings.TO_EMAIL])
+    return JsonResponse({'success': True})
     # except:
     #     pass
 
