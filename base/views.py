@@ -3,6 +3,7 @@ import json
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView
+from base.api.paginator import get_paginated_feedbacks
 from base.forms import FeedbackForm
 from base.models import Flat, FlatPhoto, Feedback
 from django.core.mail import send_mail
@@ -56,6 +57,7 @@ class FlatDetailView(FormView):
         feedbacks = Feedback.objects.filter(flat=flat, approved=True).order_by('-created_at')[:15]
         context['photos'] = json.dumps(galery_photos)
         context['feedbacks'] = feedbacks
+        context['rendered_feedbacks'] = get_paginated_feedbacks(self.request, flat_id=flat.pk)
         context['flat'] = flat
         context['page'] = 'flats'
         if self.request.session.get('has_commented_%s' % flat.pk, False):
