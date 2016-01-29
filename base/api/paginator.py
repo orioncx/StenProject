@@ -5,9 +5,11 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 
 
-def get_paginated_feedbacks(request, per_page=2, page=None, flat_id=None):
+def get_paginated_feedbacks(request, per_page=None, page=None, flat_id=None):
     if not page:
-        page=1
+        page = 1
+    if not per_page:
+        per_page = 2
     flat = None
     if flat_id:
         flat = Flat.objects.get(pk=flat_id)
@@ -24,4 +26,5 @@ def get_paginated_feedbacks(request, per_page=2, page=None, flat_id=None):
 def paginator_view(request):
     flat_id = request.GET.get('flat', None)
     page = request.GET.get('page', None)
-    return HttpResponse(get_paginated_feedbacks(request, page=page, flat_id=flat_id))
+    per_page = request.GET.get('per_page', None)
+    return HttpResponse(get_paginated_feedbacks(request,per_page=per_page, page=page, flat_id=flat_id))

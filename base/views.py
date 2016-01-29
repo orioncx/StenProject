@@ -85,8 +85,21 @@ class FlatDetailView(FormView):
         self.request.session['has_commented_%s' % flat.pk] = True
         return JsonResponse({'success': True})
 
+
 class AboutUsView(TemplateView):
     template_name = 'about_us.html'
+
+
+class FeedbacksView(TemplateView):
+    template_name = 'feedbacks.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(FeedbacksView, self).get_context_data(**kwargs)
+        page = self.request.GET.get('page', None)
+        feedbacks = get_paginated_feedbacks(self.request, page=page, per_page=3)
+        context['page'] = 'feedbacks'
+        context['feedbacks'] = feedbacks
+        return context
 
 
 class FlatListView(ListView):

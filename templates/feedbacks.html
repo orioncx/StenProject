@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-9"><h2 class="header_no_margim">{% trans 'Отзывы' %}</h2>
+            <div id="feedback_cont">
+                {{ feedbacks|safe }}
+            </div>
+        </div>
+        <div class="col-md-3 text-left">
+            {% include 'include/right_panel.html' %}
+        </div>
+    </div>
+{% endblock %}
+
+
+{% block extra_footer_scripts %}
+    <script type="text/javascript">
+    $(document).on('click', '.page_num_href', function () {
+            $.get('{% url 'api_feedbacks' %}?page='+$(this).data('page')+'&per_page=3').success(function(data){
+                $("#feedback_cont").html(data);
+            });
+        });
+    </script>
+{% endblock %}

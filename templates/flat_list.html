@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load static fb_versions i18n %}
 {% block body %}
-
+<div class="row">
     <div class="col-md-9">
     <h2 class="header_no_margim">{% trans "Квартиры на сутки в Гомеле" %}</h2>
         {% for flat in object_list %}
-            <div class="flat row">
+            <div class="flat">
                 <div class="col-sm-7 list_photo">
                     <a href="{% url 'flat_detail' flat.slug %}"><img src="{% version flat.image 'big' %}"/></a>
                 </div>
@@ -37,4 +37,5 @@
     <div class="col-md-3 text-left">
         {% include 'include/right_panel.html' %}
     </div>
+</div>
 {% endblock %}

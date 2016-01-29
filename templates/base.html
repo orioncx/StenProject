@@ -63,6 +63,7 @@
         </form>
           <ul class="nav navbar-nav navbar-right">
 
+              <li {% ifequal page 'feedbacks' %}class="active"{% endifequal %}><a href="{% url 'feedbacks_list' %}">{% trans 'Отзывы' %}</a></li>
               <li {% ifequal page 'flats' %}class="active"{% endifequal %}><a href="/">{% trans 'Квартиры на сутки' %}</a></li>
               <li {% ifequal request.path '/about_us/' %}class="active"{% endifequal %}><a href="{% url 'about_us' %}">{% trans 'О нас' %}</a></li>
           </ul>
