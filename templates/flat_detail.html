@@ -131,6 +131,36 @@
 
         {#        <div>{{ flat.description|safe }}</div>#}
         <div id="map" style="width: 100%; height: 400px"></div>
+
+
+    </div>
+    <div class="col-md-4 text-justify">
+        {% include 'include/right_panel.html' %}
+        <br/>
+        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
+                data-target="#rentModal">{% trans "Сделать заявку" %}</button>
+        <br/>
+
+        <div class="description">
+            <div>
+
+                <span class="pr_byr"> {{ flat.price_byr }} BYR </span>
+                <span class="pr_usd"> ~{{ flat.price_usd }} usd </span><br>
+                <span class="desc_param"> {{ flat.district }}</span><br>
+                <span class="desc_param"> {{ flat.rooms }} комн.</span><br>
+                <span class="desc_param"><strong> {{ flat.adress }}</strong></span><br>
+            </div>
+            <div>
+
+                <div class="desc_param detail_desc">
+                    {{ flat.description|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+    <div class="col-md-8">
         <h3>{% trans "Отзывы" %}:</h3>
     <div id="feedback_cont">
         {{ rendered_feedbacks|safe }}
@@ -173,31 +203,6 @@
                 <a href="#feedback_form" class="btn btn-primary" id="comment_button">{% trans "Оставить отзыв" %}</a>
             </div>
         {% endif %}
-
-    </div>
-    <div class="col-md-4 text-justify">
-        {% include 'include/right_panel.html' %}
-        <br/>
-        <button type="button" class="btn btn-primary btn-lg btn-block" data-toggle="modal"
-                data-target="#rentModal">{% trans "Сделать заявку" %}</button>
-        <br/>
-
-        <div class="description">
-            <div>
-
-                <span class="pr_byr"> {{ flat.price_byr }} BYR </span>
-                <span class="pr_usd"> ~{{ flat.price_usd }} usd </span><br>
-                <span class="desc_param"> {{ flat.district }}</span><br>
-                <span class="desc_param"> {{ flat.rooms }} комн.</span><br>
-                <span class="desc_param"><strong> {{ flat.adress }}</strong></span><br>
-            </div>
-            <div>
-
-                <div class="desc_param">
-                    {{ flat.description|safe }}
-                </div>
-            </div>
-        </div>
     </div>
     </div>
 

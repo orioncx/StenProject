@@ -177,7 +177,9 @@ textarea{
 .header_no_margim{
     margin-top: 0;
 }
-
+.detail_desc{
+    margin-top: 1em;
+}
 /*.list_text{*/
     /*position: relative;*/
 /*}*/
