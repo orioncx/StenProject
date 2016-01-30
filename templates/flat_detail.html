@@ -47,16 +47,14 @@
             {%  verbatim %}
             var MyBalloonContentLayoutClass = ymaps.templateLayoutFactory.createClass(
                     '<h3>{{ properties.name }}</h3>' +
-                    '<p>Комнат: {{ properties.rooms }}</p>' +
-                    '<p>Метрополитен: {% if properties.metro %}да{% else %}нет{% endif %}</p>'
+                    '<p>Комнат: {{ properties.rooms }}</p>'
             );
             {% endverbatim %}
             var myPlacemark = new ymaps.Placemark(
                     [{{ flat.coords }}],
                     {
                         name: '{{ flat.title }}',
-                        rooms: '{{ flat.rooms }}',
-                        metro: true
+                        rooms: '{{ flat.rooms }}'
                     },
                     {balloonContentLayout: MyBalloonContentLayoutClass}
             );
