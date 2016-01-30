@@ -1,5 +1,18 @@
 {% load static rate i18n %}
 <div class="feedback">
+{% if show_pagination %}
+        {% for page_num in paginator.page_range %}
+
+            {% ifequal page_num feedbacks.number %}
+                <span class="page_num active_page_num"><span class="page_num">{{ page_num }}</span></span>
+            {% else %}
+                <span class="page_num"><span class="page_num"><a href="javascript:;" class="page_num_href"
+                                                                 data-page="{{ page_num }}"
+                                                                 data-flat="{{ flat.pk }}">{{ page_num }}</a></span></span>
+            {% endifequal %}
+
+        {% endfor %}
+    {% endif %}
     {% for feedback in feedbacks %}
         <div class="row">
         <div class="rating">
@@ -13,17 +26,5 @@
         {% trans "Здесь пока нет ни одного отзыва" %}
         <hr/>
     {% endfor %}
-    {% if show_pagination %}
-        {% for page_num in paginator.page_range %}
 
-            {% ifequal page_num feedbacks.number %}
-                <span class="page_num active_page_num"><span class="page_num">{{ page_num }}</span></span>
-            {% else %}
-                <span class="page_num"><span class="page_num"><a href="javascript:;" class="page_num_href"
-                                                                 data-page="{{ page_num }}"
-                                                                 data-flat="{{ flat.pk }}">{{ page_num }}</a></span></span>
-            {% endifequal %}
-
-        {% endfor %}
-    {% endif %}
 </div>
