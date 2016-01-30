@@ -186,16 +186,14 @@
 
         <div class="description">
             <div>
-                <strong>{% trans "Цена" %}:</strong>
+
                 <span class="pr_byr"> {{ flat.price_byr }} BYR </span>
                 <span class="pr_usd"> ~{{ flat.price_usd }} usd </span><br>
                 <span class="desc_param"> {{ flat.district }}</span><br>
                 <span class="desc_param"> {{ flat.rooms }} комн.</span><br>
-                <span class="desc_param"> {{ flat.adress }}</span><br>
+                <span class="desc_param"><strong> {{ flat.adress }}</strong></span><br>
             </div>
             <div>
-
-                <strong>{% trans "Информация" %}:</strong>
 
                 <div class="desc_param">
                     {{ flat.description|safe }}
