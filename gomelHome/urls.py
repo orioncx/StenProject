@@ -33,7 +33,7 @@ class BlogSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Flat.objects.all()
+        return Flat.objects.filter(show_on_index=True)
 
     def lastmod(self, obj):
         return obj.updated_at
@@ -46,10 +46,10 @@ class StaticViewSitemap(Sitemap):
     priority = 0.6
 
     def items(self):
-        return ['flat_list', 'about_us']
+        return ['flat_list', 'about_us','feedbacks_list']
 
     def location(self, item):
-        return reverse_lazy(item)
+        return reverse_lazy(item).replace('/ru/','/').replace('/en/','/')
 
 
 urlpatterns = [
