@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 import json
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.views.generic import TemplateView, ListView, FormView
 from base.api.paginator import get_paginated_feedbacks
@@ -38,6 +38,18 @@ def rent_form_sent(request):
     #     pass
 
     # return JsonResponse({'success': False}, status=400)
+
+
+def robots(request):
+    return HttpResponse("""User-agent: *
+Disallow:
+Disallow: /admin/
+Disallow: /rosetta/
+Disallow: /grappelli/
+Disallow: /tinymce/
+Disallow: /mce_filebrowser/
+Sitemap: sitemap.xml
+""", content_type="text/plain")
 
 
 class FlatDetailView(FormView):
