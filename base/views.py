@@ -112,7 +112,7 @@ class FeedbacksView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(FeedbacksView, self).get_context_data(**kwargs)
         page = self.request.GET.get('page', None)
-        feedbacks = get_paginated_feedbacks(self.request, page=page, per_page=3)
+        feedbacks = get_paginated_feedbacks(self.request, page=page, per_page=20)
         context['page'] = 'feedbacks'
         context['feedbacks'] = feedbacks
         return context

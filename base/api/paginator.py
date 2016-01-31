@@ -9,7 +9,7 @@ def get_paginated_feedbacks(request, per_page=None, page=None, flat_id=None):
     if not page:
         page = 1
     if not per_page:
-        per_page = 2
+        per_page = 8
     flat = None
     if flat_id:
         flat = Flat.objects.get(pk=flat_id)

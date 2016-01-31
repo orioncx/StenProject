@@ -18,7 +18,7 @@
 {% block extra_footer_scripts %}
     <script type="text/javascript">
     $(document).on('click', '.page_num_href', function () {
-            $.get('{% url 'api_feedbacks' %}?page='+$(this).data('page')+'&per_page=3').success(function(data){
+            $.get('{% url 'api_feedbacks' %}?page='+$(this).data('page')+'&per_page=20').success(function(data){
                 $("#feedback_cont").html(data);
             });
         });
