@@ -51,7 +51,8 @@ class FlatPhoto(models.Model):
 
 class Feedback(models.Model):
     flat = models.ForeignKey(Flat, verbose_name=_(u'Квартира'))
-    created_at = models.DateTimeField(auto_created=True,null=True,blank=True,auto_now_add=True)
+    created_at = models.DateTimeField(null=True, blank=True, auto_now_add=True, editable=True)
+    created_at.editable = True
     country = models.CharField(null=True, blank=True, max_length=63)
     rate = models.IntegerField(null=True, blank=True, default=5)
     name = models.CharField(null=True, blank=True, max_length=127, verbose_name=_(u'Имя'))
