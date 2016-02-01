@@ -28,11 +28,15 @@ class Flat(models.Model):
     rooms = models.IntegerField(null=True, blank=True, verbose_name=_(u'Количество комнат'))
     updated_at = models.DateTimeField(auto_now=True)
     show_on_index = models.BooleanField(default=True, verbose_name=_(u'На главной'))
+    order_position = models.IntegerField(default=0,null=True,blank=True, verbose_name=u'Приоритет отображения')
 
     # features = models.ManyToManyField(FlatFeatures, null=True, blank=True, verbose_name=_(u'Фишки'))
 
     def __unicode__(self):
         return self.title or u''
+
+    class Meta:
+        ordering = ['-order_position', 'pk']
 
 
 class FlatPhoto(models.Model):
