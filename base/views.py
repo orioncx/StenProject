@@ -42,7 +42,6 @@ def rent_form_sent(request):
 
 def robots(request):
     return HttpResponse("""User-agent: *
-Disallow:
 Disallow: /admin/
 Disallow: /rosetta/
 Disallow: /grappelli/
