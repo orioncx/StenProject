@@ -48,7 +48,6 @@ Disallow: /rosetta/
 Disallow: /grappelli/
 Disallow: /tinymce/
 Disallow: /mce_filebrowser/
-Sitemap: sitemap.xml
 """, content_type="text/plain")
 
 
