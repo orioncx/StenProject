@@ -20,7 +20,8 @@ def rent_form_sent(request):
     comment = request.POST.get('comment')
     email = request.POST.get('email')
     name = request.POST.get('name')
-
+    if not phone and not email and not name:
+        return HttpResponse(status=400)
     msg_txt = u"""\n
         Квартира: %s \n
         с: %s \n
