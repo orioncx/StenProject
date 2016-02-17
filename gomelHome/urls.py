@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 from django.core.urlresolvers import reverse, reverse_lazy
+from django.views.generic import RedirectView
 from filebrowser.sites import site
 from django.conf import settings
 from django.conf.urls.static import static
@@ -61,6 +62,7 @@ urlpatterns = [
                   url(r'^', include('base.urls')),
                   url(r'^rosetta/', include('rosetta.urls')),
                   url(r'^robots\.txt$', robots, name='robots'),
+                  url(r'^favicon\.ico$', RedirectView.as_view(url='/static/imgs/favicon.ico')),
                   url(r'^sitemap\.xml$', sitemap,
                       {'sitemaps': {'flats': BlogSitemap(), 'static': StaticViewSitemap()}},
                       name='django.contrib.sitemaps.views.sitemap'),
