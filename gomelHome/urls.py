@@ -26,8 +26,9 @@ from django.contrib.sitemaps.views import sitemap
 from django.contrib.sitemaps import GenericSitemap, Sitemap
 from base.models import Flat
 from django.conf.urls import url, include
-from django.conf.urls.i18n import i18n_patterns
-from base.views import FlatDetailView, FlatListView,AboutUsView, rent_form_sent, FeedbacksView, robots
+#from django.conf.urls.i18n import i18n_patterns
+from solid_i18n.urls import solid_i18n_patterns as i18n_patterns
+from base.views import AboutUsView, FlatDetailView, FlatListView,AboutUsView, rent_form_sent, FeedbacksView, robots
 
 
 class BlogSitemap(Sitemap):
@@ -77,4 +78,6 @@ urlpatterns += i18n_patterns(
         name='flat_list'),
     url(r'^feedbacks/$', FeedbacksView.as_view(),
         name='feedbacks_list'),
+    url(r'^about_us/$', AboutUsView.as_view(),
+        name='about_us'),
 )

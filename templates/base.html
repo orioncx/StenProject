@@ -1,4 +1,4 @@
-{% load static i18n %}
+﻿{% load static i18n %}
 {#{% get_flatpages as flatpages %}#}
 {% get_current_language as LANGUAGE_CODE %}
 <!DOCTYPE html>
@@ -59,9 +59,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">GomelHome.by</a>
-          <a class="navbar-brand lang_change" data-lang="ru" href="javascript:;">{% ifequal LANGUAGE_CODE 'ru'%}<strong>RU</strong>{% else %}RU{% endifequal %}</a>
-          <a class="navbar-brand lang_change" data-lang="en"  href="javascript:;">{% ifequal LANGUAGE_CODE 'en'%}<strong>EN</strong>{% else %}EN{% endifequal %}</a>
+          <a class="navbar-brand" href="{% url 'flat_list' %}">GomelHome.by</a>
+          <a class="navbar-brand lang_change" data-lang="ru" href="{% ifequal LANGUAGE_CODE 'ru'%}{{ request.path }}{% else %}{{ request.path|slice:'3:'}}{% endifequal %}" onclick="javascript:;">{% ifequal LANGUAGE_CODE 'ru'%}<strong>RU</strong>{% else %}RU{% endifequal %}</a>
+          <a class="navbar-brand lang_change" data-lang="en"  href="{% ifequal LANGUAGE_CODE 'ru'%}/en{{ request.path }}{% else %}{{ request.path }}{% endifequal %}" onclick="javascript:;">{% ifequal LANGUAGE_CODE 'en'%}<strong>EN</strong>{% else %}EN{% endifequal %}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
         <form id="lang_change_form" action="{% url 'set_language' %}" method="post">
@@ -72,7 +72,7 @@
           <ul class="nav navbar-nav navbar-right">
 
               <li {% ifequal page 'feedbacks' %}class="active"{% endifequal %}><a href="{% url 'feedbacks_list' %}">{% trans 'Отзывы' %}</a></li>
-              <li {% ifequal page 'flats' %}class="active"{% endifequal %}><a href="/">{% trans 'Квартиры на сутки' %}</a></li>
+              <li {% ifequal page 'flats' %}class="active"{% endifequal %}><a href="{% url 'flat_list' %}">{% trans 'Квартиры на сутки' %}</a></li>
               <li {% ifequal request.path '/about_us/' %}class="active"{% endifequal %}><a href="{% url 'about_us' %}">{% trans 'О нас' %}</a></li>
           </ul>
 
