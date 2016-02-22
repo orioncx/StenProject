@@ -1,6 +1,6 @@
 __author__ = 'orion'
 from modeltranslation.translator import translator, TranslationOptions
-from models import Flat, FlatPhoto
+from base.models import Flat, FlatPhoto
 
 
 class FlatTranslationOptions(TranslationOptions):
